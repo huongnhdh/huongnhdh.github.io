@@ -180,16 +180,16 @@ export default function Index() {
           />
           <div className="flex flex-col items-start	">
             <span className="mb-2 ml-4 text-xl">
-              Hi, I&apos;m <strong className={'text-black'}>Huong Ngo</strong>,
+              Hi, I&apos;m <strong className="text-black">Huong Ngo</strong>,
               i&apos; m a software engineer
             </span>
             <small className="ml-4 inline-flex justify-center gap-4 align-middle">
               <div>
-                <IconMapPinFilled size={20} className={'inline'} />
+                <IconMapPinFilled size={20} className="inline" />
                 <span>HCM, VietNam</span>
               </div>
               <div>
-                <IconMail size={20} className={'inline'} />
+                <IconMail size={20} className="inline" />
                 <span> huong.nhdh@gmail.com</span>
               </div>
             </small>
@@ -200,7 +200,7 @@ export default function Index() {
             return (
               <div key={c.name}>
                 <a
-                  target={'_blank'}
+                  target="_blank"
                   key={index}
                   href={c.href}
                   type="button"
@@ -235,8 +235,8 @@ export default function Index() {
           return (
             <div key={index}>
               <div className="grid grid-cols-1 justify-center gap-4 md:grid-cols-12">
-                <small className={'col-span-4'}>{k.category}: </small>
-                <div className={'col-span-8 font-normal'}>{k.name}</div>
+                <small className="col-span-4">{k.category}: </small>
+                <div className="col-span-8 font-normal">{k.name}</div>
               </div>
               <hr className="my-5" />
             </div>
@@ -269,7 +269,7 @@ export default function Index() {
                       ? ' bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700'
                       : 'bg-gray-600'
                   } `}
-                ></div>
+                />
                 {/* eslint-disable-next-line tailwindcss/enforces-negative-arbitrary-values */}
                 <time className=" absolute -left-1.5 -ml-[200px] mb-1 mt-1.5 h-3 text-sm font-normal leading-none">
                   {dateFormatter.format(c.fromTime)} ~
@@ -295,10 +295,10 @@ export default function Index() {
                 key={index}
                 className="flex max-w-sm flex-col justify-center border p-4"
               >
-                <div className={'flex w-full items-center justify-center'}>
+                <div className="flex w-full items-center justify-center">
                   <a
-                    className={'hover:border-b-0'}
-                    target={'_blank'}
+                    className="hover:border-b-0"
+                    target="_blank"
                     href={edu.link}
                   >
                     <img
@@ -313,7 +313,7 @@ export default function Index() {
                     {edu.name} at {edu.time}
                   </h6>
                   <a
-                    target={'_blank'}
+                    target="_blank"
                     href={edu.link}
                     className="rounded-lg bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-lg shadow-purple-500/50 hover:border-b-0 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-purple-300 dark:shadow-lg dark:shadow-purple-800/80 dark:focus:ring-purple-800"
                   >

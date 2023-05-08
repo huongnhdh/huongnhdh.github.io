@@ -18,21 +18,21 @@ const LPProfile = (props: IMainProps) => (
         <div>© Copyright 2023 {AppConfig.title}</div>
         <div className="flex items-start justify-start gap-4">
           <a
-            className={'hover:border-0'}
-            target={'_blank'}
+            className="hover:border-0"
+            target="_blank"
             href="https://huongnhdh.github.io/blog/"
           >
             Blogs
-            <IconExternalLink className={'ml-1 inline'} size={15} />
+            <IconExternalLink className="ml-1 inline" size={15} />
           </a>
           <h6>Friends:</h6>
           <a
-            className={'inline hover:border-0'}
-            target={'_blank'}
+            className="inline hover:border-0"
+            target="_blank"
             href="https://github.com/ducla5"
           >
             ducla5
-            <IconExternalLink className={'ml-1 inline'} size={15} />
+            <IconExternalLink className="ml-1 inline" size={15} />
           </a>
         </div>
       </footer>

@@ -13,7 +13,7 @@ class MyDocument extends Document {
           type="text/javascript"
           async
           src="https://cdn.credly.com/assets/utilities/embed.js"
-        ></script>
+        />
         <body>
           <Main />
           <NextScript />
