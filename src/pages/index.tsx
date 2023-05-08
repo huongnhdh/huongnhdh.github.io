@@ -14,20 +14,20 @@ import { useMemo } from 'react';
 import { Meta } from '@/layouts/Meta';
 import { LPProfile } from '@/templates/LPProfile';
 
-const contacts = [
+const contacts = (size = 25) => [
   {
     name: 'LinkedIn',
-    icon: <IconBrandLinkedin size={25} />,
+    icon: <IconBrandLinkedin size={size} />,
     href: 'https://www.linkedin.com/in/huongnhd/',
   },
   {
     name: 'Github',
-    icon: <IconBrandGithub size={25} />,
+    icon: <IconBrandGithub size={size} />,
     href: 'https://github.com/huongnhdh',
   },
   {
     name: 'Telegram',
-    icon: <IconBrandTelegram size={25} />,
+    icon: <IconBrandTelegram size={size} />,
     href: 'https://t.me/snoopimimi',
   },
 ];
@@ -43,17 +43,17 @@ export default function Index() {
       {
         icon: <IconAppWindow size={36} />,
         years: new Date().getFullYear() - 2016,
-        domain: 'in Web Dev',
+        domain: 'Web Dev',
       },
       {
         icon: <IconDatabaseHeart size={36} />,
         years: new Date().getFullYear() - 2016,
-        domain: 'in Database',
+        domain: 'Database',
       },
       {
         icon: <IconBrandAws size={36} />,
         years: new Date().getFullYear() - 2019,
-        domain: 'in Cloud',
+        domain: 'Cloud',
       },
     ];
   }, []);
@@ -171,32 +171,79 @@ export default function Index() {
         />
       }
     >
-      <div className="flex items-center justify-between">
-        <div className="flex max-w-7xl items-center">
-          <img
-            className="h-[5rem] rounded-full p-1 ring-2 ring-gray-300 dark:ring-gray-500"
-            src="https://avatars.githubusercontent.com/u/13867138"
-            alt="Bordered avatar"
-          />
-          <div className="flex flex-col items-start	">
-            <span className="mb-2 ml-4 text-xl">
-              Hi, I&apos;m <strong className="text-black">Huong Ngo</strong>,
-              i&apos; m a software engineer
-            </span>
+      <div className="flex flex-col items-center justify-between  p-4 md:flex-row">
+        <div className="flex max-w-7xl flex-col items-center gap-4 md:flex-row md:gap-1">
+          <div className="flex h-[5rem] sm:w-full md:w-auto ">
+            <img
+              className="h-[5rem] rounded-full p-1 ring-2 ring-purple-300 dark:ring-gray-500"
+              src="https://avatars.githubusercontent.com/u/13867138"
+              alt="Bordered avatar"
+            />
+          </div>
+          <div className="hidden flex-col items-start md:flex	">
+            <div className="flex w-full flex-col text-center  md:flex-row">
+              <span className="ml-4 text-xl">
+                Hi, I&apos;m{' '}
+                <strong className="text-gray-900">Huong Ngo</strong>
+                ,&nbsp;
+              </span>
+              <span className="mb-2 text-xl">
+                i&apos; m a software engineer
+              </span>
+            </div>
             <small className="ml-4 inline-flex justify-center gap-4 align-middle">
               <div>
                 <IconMapPinFilled size={20} className="inline" />
                 <span>HCM, VietNam</span>
               </div>
               <div>
-                <IconMail size={20} className="inline" />
-                <span> huong.nhdh@gmail.com</span>
+                <a
+                  href="mailto:huong.nhdh@gmail.com"
+                  className="text-inherit hover:border-0"
+                >
+                  <IconMail size={20} className="inline" />
+                  <span> huong.nhdh@gmail.com</span>
+                </a>
               </div>
             </small>
           </div>
+          <div className="flex flex-col items-start md:hidden	">
+            <div className="flex w-full flex-col text-center  md:flex-row">
+              <span className="ml-4 text-xl">
+                Hi, I&apos;m <strong className="text-black">Huong Ngo</strong>
+              </span>
+              <span className="mb-2 text-sm">
+                I&apos;m a software engineer base in HCM, VietNam
+                {/* <IconMapPinFilled size={20} className="ml-2 inline" /> */}
+              </span>
+            </div>
+          </div>
+          <hr />
+          <div className="flex w-full flex-row justify-center gap-2 md:hidden md:justify-end">
+            <a
+              href="mailto:huong.nhdh@gmail.com"
+              className="flex h-9 w-9 items-center justify-center gap-2 rounded-full bg-purple-600 text-center text-sm font-medium text-white shadow-sm  hover:border-0  focus:outline-none "
+            >
+              <IconMail size={16} className="inline" />
+            </a>
+            {contacts(16).map((c, index) => {
+              return (
+                <a
+                  target="_blank"
+                  key={index}
+                  href={c.href}
+                  type="button"
+                  className="flex h-9 w-9 items-center justify-center gap-2 rounded-full bg-purple-600 text-center text-sm font-medium text-white shadow-sm  hover:border-0  focus:outline-none "
+                >
+                  {c.icon}
+                </a>
+              );
+            })}
+          </div>
+          <hr />
         </div>
-        <div className="flex flex-row justify-end gap-2">
-          {contacts.map((c, index) => {
+        <div className="hidden max-w-7xl flex-row gap-2 md:flex md:flex-row md:justify-end">
+          {contacts(25).map((c, index) => {
             return (
               <div key={c.name}>
                 <a
@@ -213,16 +260,23 @@ export default function Index() {
           })}
         </div>
       </div>
-      <section id="features" className="my-20">
-        <div className="grid grid-cols-3 justify-center gap-4">
+      <section id="features" className="md:my-20">
+        <div className="grid grid-cols-1 justify-center gap-4 md:grid-cols-3">
           {features.map((f, index) => (
             <div
               key={index}
-              className="card flex h-40 w-full flex-col items-center justify-center bg-white text-center"
+              className="card flex flex-row items-center justify-start bg-white md:h-40 md:flex-col md:items-center md:justify-center md:text-center"
             >
               {f.icon}
-              <strong> {f.years}+ years</strong>
-              <span> {f.domain}</span>
+              <div className="flex flex-row md:flex-col md:gap-0">
+                <div className="ml-2 md:m-auto">
+                  <strong> {f.years}+ years</strong>
+                </div>
+                <div className="">
+                  <span className="ml-1 md:inline">in</span>
+                  <span> {f.domain}</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -230,28 +284,29 @@ export default function Index() {
       <section id="skills" className="my-10">
         <h3 className="text-xl font-semibold">Skills</h3>
         <hr className="my-5" />
-
-        {skills.map((k, index) => {
-          return (
-            <div key={index}>
-              <div className="grid grid-cols-1 justify-center gap-4 md:grid-cols-12">
-                <small className="col-span-4">{k.category}: </small>
-                <div className="col-span-8 font-normal">{k.name}</div>
+        <div className="card">
+          {skills.map((k, index) => {
+            return (
+              <div key={index}>
+                <div className="grid grid-cols-1 justify-center gap-4 md:grid-cols-12">
+                  <small className="col-span-4">{k.category}: </small>
+                  <div className="col-span-8 font-normal">{k.name}</div>
+                </div>
+                <hr className="my-5" />
               </div>
-              <hr className="my-5" />
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </section>
       <section id="language" className="my-10">
         <h3 className="text-xl font-semibold">Languages</h3>
         <hr className="my-5" />
-        <div className="my-5">
+        <div className="my-5 flex flex-col gap-2 p-2 md:flex-row">
           <span className="mr-2 rounded bg-purple-100 px-2.5 py-0.5 text-sm font-medium text-purple-800 dark:bg-purple-900 dark:text-purple-300">
-            Vietnamese:native
+            Vietnamese: Native
           </span>
           <span className="mr-2 rounded bg-purple-100 px-2.5 py-0.5 text-sm font-medium text-purple-800 dark:bg-purple-900 dark:text-purple-300">
-            English:communication
+            English: Working Proficiency
           </span>
         </div>
       </section>
@@ -259,30 +314,31 @@ export default function Index() {
         <h3 className="text-xl font-semibold">The Companies worked for</h3>
         <hr className="my-5" />
 
-        <ol className="relative ml-[200px] border-l  border-l-gray-200  dark:border-l-purple-300">
-          {companies.map((c, index) => {
-            return (
-              <li className="mb-10 ml-4 flex" key={index}>
-                <div
-                  className={`absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full  ${
-                    index === 0
-                      ? ' bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700'
-                      : 'bg-gray-600'
-                  } `}
-                />
-                {/* eslint-disable-next-line tailwindcss/enforces-negative-arbitrary-values */}
-                <time className=" absolute -left-1.5 -ml-[200px] mb-1 mt-1.5 h-3 text-sm font-normal leading-none">
-                  {dateFormatter.format(c.fromTime)} ~
-                  {!c.toTime ? 'now' : dateFormatter.format(c.toTime)}
-                </time>
+        <div className="p-4">
+          <ol className="relative  border-l  border-l-gray-200  dark:border-l-purple-300">
+            {companies.map((c, index) => {
+              return (
+                <li className="mb-10 ml-4 flex" key={index}>
+                  <div
+                    className={`absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full  ${
+                      index === 0
+                        ? ' bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700'
+                        : 'bg-gray-600'
+                    } `}
+                  />
+                  <time className=" absolute  mb-1 mt-1.5 h-3 text-sm font-normal leading-none">
+                    {dateFormatter.format(c.fromTime)} ~
+                    {!c.toTime ? 'now' : dateFormatter.format(c.toTime)}
+                  </time>
 
-                <span className="ml-4 text-lg font-normal text-gray-900 dark:text-white">
-                  {c.title} at {c.name}
-                </span>
-              </li>
-            );
-          })}
-        </ol>
+                  <span className="mt-8 text-lg font-normal text-gray-900 dark:text-white">
+                    {c.title} at {c.name}
+                  </span>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </section>
       <section id="certs" className="my-5">
         <h3 className="my-5 text-xl font-semibold">Certificates</h3>
@@ -310,7 +366,7 @@ export default function Index() {
                 </div>
                 <div className="flex w-full flex-col items-center justify-center gap-4 p-5">
                   <h6 className=" mb-2 font-bold tracking-tight  dark:text-white">
-                    {edu.name} at {edu.time}
+                    {edu.name} at <time>{edu.time}</time>
                   </h6>
                   <a
                     target="_blank"
@@ -327,20 +383,18 @@ export default function Index() {
       <section id="education" className="my-5">
         <h3 className="text-xl font-semibold">Education</h3>
         <hr className="my-5" />
-        <table className="table-auto">
-          <tbody>
-            {educations
-              .filter((e) => !e.isCert)
-              .map((edu, index) => {
-                return (
-                  <tr key={index}>
-                    <td className="w-40">{edu.time}</td>
-                    <td className="p-4">{edu.name}</td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
+        <div className="card">
+          {educations
+            .filter((e) => !e.isCert)
+            .map((edu, index) => {
+              return (
+                <div key={index} className="grid grid-cols-1 md:grid-cols-12">
+                  <time className="col-span-4 text-sm">{edu.time}</time>
+                  <div className="col-span-8">{edu.name}</div>
+                </div>
+              );
+            })}
+        </div>
       </section>
     </LPProfile>
   );

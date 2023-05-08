@@ -14,11 +14,10 @@ const LPProfile = (props: IMainProps) => (
     {/* <Header /> */}
     <div className="mx-auto max-w-screen-md no-underline">
       <main className="content px-3 py-5">{props.children}</main>
-      <footer className="flex h-1/4 justify-between border-t border-gray-300 py-20 text-center text-sm ">
-        <div>© Copyright 2023 {AppConfig.title}</div>
-        <div className="flex items-start justify-start gap-4">
+      <footer className="flex h-1/4 flex-col  justify-center gap-4 border-t border-gray-300 py-20 text-center text-sm md:flex-row  md:justify-between ">
+        <div className="flex justify-center gap-4 md:items-start md:justify-start">
           <a
-            className="hover:border-0"
+            className="text-purple-700 hover:border-0"
             target="_blank"
             href="https://huongnhdh.github.io/blog/"
           >
@@ -27,7 +26,7 @@ const LPProfile = (props: IMainProps) => (
           </a>
           <h6>Friends:</h6>
           <a
-            className="inline hover:border-0"
+            className="inline text-purple-700 hover:border-0"
             target="_blank"
             href="https://github.com/ducla5"
           >
@@ -35,6 +34,7 @@ const LPProfile = (props: IMainProps) => (
             <IconExternalLink className="ml-1 inline" size={15} />
           </a>
         </div>
+        <div className="">© Copyright 2023 {AppConfig.title}</div>
       </footer>
     </div>
   </div>

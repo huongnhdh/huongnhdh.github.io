@@ -9,11 +9,7 @@ class MyDocument extends Document {
     return (
       <Html lang={AppConfig.locale}>
         <Head />
-        <script
-          type="text/javascript"
-          async
-          src="https://cdn.credly.com/assets/utilities/embed.js"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <body>
           <Main />
           <NextScript />
